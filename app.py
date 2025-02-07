@@ -14,7 +14,7 @@ def main():
     st.title('Aspect-based Sentiment Analysis')
     st.header('Model: DistilBERT. Dataset: SemEval4 Restaurants')
     text_input = st.text_input("Sentence: ", "The bread is top notch as well")
-    results = token_classifier(test_sentence)
+    results = token_classifier(text_input)
     sentence_tags = " ".join([result['word'] for result in results])
     pred_label = classifier(f'{test_sentence} [SEP] {sentence_tags}')
     st.success(f'Sentence: {text_input} === Term: {sentence_tags} === Sentiment: {pred_label["label"]}')
